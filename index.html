@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Юрий — Грузоперевозки</title>
+  <meta name="description" content="Гpузoпeревoзки по Калининграду и облaсти, уcлуги грузчикoв. Помoжем пеpeеxaть и дocтaвить любые вещи. По гoрoду и мeжгoрод Квартирные перeeзды, cбopка / paзборкa мeбeли. Зaбеpу Bаш заказ из магaзинa и дoстaвлю до aдpеca. Подъём стройматеpиа.">
+    <style>@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap');
+:root {
+  --bg:#0b0f19;--surface:#131a2a;--text:#f1f5f9;--muted:#94a3b8;
+  --primary:#f59e0b;--accent:#fb7185;--dark:#05070d;
+  --font-body:'Outfit',system-ui,sans-serif;
+  --font-title:'Sora','Outfit',system-ui,sans-serif;
+  --radius:16px;--shadow:0 20px 60px rgba(2,6,23,.12);
+}
+* { box-sizing:border-box; }
+html,body { margin:0; padding:0; background:var(--bg); color:var(--text); }
+body { font-family:var(--font-body); line-height:1.6; }
+h1,h2,h3,h4 { font-family:var(--font-title); line-height:1.15; margin:0 0 14px; }
+h1 { font-size:clamp(34px,5vw,62px); letter-spacing:-.02em; }
+h2 { font-size:clamp(28px,4vw,44px); letter-spacing:-.015em; margin-bottom:24px; }
+p { margin:0 0 12px; color:var(--muted); }
+.container { width:min(1200px,92%); margin:0 auto; }
+.section { padding:88px 0; }
+.section--muted { background:color-mix(in oklab, var(--surface) 76%, var(--primary) 8%); }
+.section--dark { background:var(--dark); }
+.section--dark h2,.section--dark p { color:#e2e8f0; }
+
+.header { position:sticky; top:0; z-index:50; backdrop-filter:blur(8px); border-bottom:1px solid color-mix(in oklab, var(--primary) 15%, transparent); }
+.header--classic,.header--split,.header--centered,.header--transparent { background:color-mix(in oklab, var(--surface) 90%, transparent); }
+.header--transparent { position:absolute; width:100%; background:transparent; border-bottom:none; }
+.header--transparent .logo,
+.header--transparent nav a,
+.header--transparent .btn--ghost { color:#ffffff; border-color:rgba(255,255,255,.45); }
+.navrow { min-height:74px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.logo { font-weight:800; letter-spacing:.2px; font-size:20px; }
+.logo-kicker { font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; color:var(--primary); white-space:nowrap; }
+.centerkicker { text-align:center; font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-weight:800; color:var(--primary); padding-top:4px; }
+nav { display:flex; gap:24px; flex-wrap:wrap; }
+nav a { text-decoration:none; color:var(--text); font-weight:600; }
+.topbar { background:var(--dark); color:#fff; }
+.topbar__row { min-height:38px; display:flex; justify-content:space-between; align-items:center; font-size:14px; }
+.topbar a { color:#fff; text-decoration:none; font-weight:700; }
+.centerlogo { text-align:center; padding-top:14px; font-size:24px; font-weight:800; }
+.navcenter { padding:10px 0 16px; display:flex; justify-content:center; }
+
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; border:none; border-radius:999px; padding:13px 24px; cursor:pointer; font-weight:700; text-decoration:none; background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; box-shadow:var(--shadow); }
+.btn--sm { padding:10px 16px; font-size:14px; }
+.btn--ghost { background:transparent; color:var(--text); border:1.5px solid color-mix(in oklab, var(--primary) 30%, var(--text) 20%); box-shadow:none; }
+
+.hero { position:relative; overflow:hidden; }
+.hero .eyebrow { margin:0 0 10px; text-transform:uppercase; letter-spacing:.18em; font-size:12px; color:var(--accent); font-weight:800; }
+.hero__actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:18px; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:stretch; }
+.hero--media-left { padding:110px 0 80px; }
+.hero--media-left .media { border-radius:22px; min-height:500px; background-size:cover; background-position:center; box-shadow:var(--shadow); }
+.hero--media-left .content { background:var(--surface); border-radius:22px; padding:42px; box-shadow:var(--shadow); }
+
+.hero--full { min-height:94vh; display:grid; place-items:center; background-image:linear-gradient(130deg, rgba(2,6,23,.65), rgba(2,6,23,.45)), var(--hero); background-size:cover; background-position:center; }
+.hero__content--center { text-align:center; max-width:880px; color:#fff; }
+.hero__content--center p { color:#e5e7eb; }
+
+.hero--diag { min-height:90vh; display:grid; grid-template-columns:58% 42%; }
+.hero__diag-left { background:var(--dark); color:#fff; clip-path:polygon(0 0, 100% 0, 84% 100%, 0 100%); display:grid; align-items:center; }
+.hero__diag-left .inner { width:min(620px,88%); margin-left:auto; margin-right:8%; }
+.hero__diag-left p { color:#cbd5e1; }
+.hero__diag-right { background-size:cover; background-position:center; }
+
+.hero--glass { min-height:88vh; padding:90px 0; background-image:linear-gradient(120deg, rgba(2,6,23,.45), rgba(2,6,23,.5)), var(--hero); background-size:cover; background-position:center; }
+.glass { max-width:760px; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.34); border-radius:24px; padding:38px; backdrop-filter:blur(14px); color:#fff; }
+.glass p { color:#eff6ff; }
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:22px 0; }
+.stats div { background:rgba(15,23,42,.35); border-radius:14px; padding:14px; }
+.stats strong { display:block; font-size:24px; }
+
+.hero--minimal { min-height:86vh; background-image:var(--hero); background-size:cover; background-position:center; display:grid; align-items:end; }
+.hero--minimal .overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(2,6,23,.35), rgba(2,6,23,.82)); }
+.hero--minimal .hero__content { position:relative; z-index:1; color:#fff; padding-bottom:92px; max-width:760px; }
+.hero--minimal p { color:#dbeafe; }
+
+.hero--stats { padding:100px 0 80px; }
+.hero--stats .panel { border-radius:24px; min-height:520px; background-size:cover; background-position:center; position:relative; overflow:hidden; }
+.hero--stats .panel::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(2,6,23,.2), rgba(2,6,23,.72)); }
+.statgrid { position:absolute; inset:auto 18px 18px; z-index:2; display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+.statgrid div { background:rgba(255,255,255,.88); border-radius:12px; padding:12px; }
+.statgrid strong { display:block; font-size:22px; color:var(--dark); }
+
+.cards { display:grid; gap:18px; }
+.cards--4 { grid-template-columns:repeat(4,1fr); }
+.cards--3 { grid-template-columns:repeat(3,1fr); }
+.cards article,.service-list article,.rows article,.prices article { background:var(--surface); border-radius:18px; padding:24px; box-shadow:var(--shadow); }
+
+.service-list { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+.rows { display:grid; gap:14px; }
+
+.prices { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.prices--six { grid-template-columns:repeat(3,1fr); }
+.prices .featured { border:2px solid var(--primary); transform:translateY(-6px); }
+.price { font-size:34px; font-weight:800; color:var(--primary); margin:8px 0 10px; }
+.prices ul { margin:0; padding-left:18px; color:var(--muted); }
+
+.works-story .story-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+.works-story img,.masonry img,.strip img { width:100%; height:100%; border-radius:14px; object-fit:cover; display:block; }
+.masonry { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.masonry img:nth-child(2), .masonry img:nth-child(5) { grid-row:span 2; min-height:420px; }
+.masonry img { min-height:200px; }
+.strip { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
+.strip img { min-height:220px; }
+
+.timeline { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.timeline article { background:var(--surface); border-radius:14px; padding:18px; box-shadow:var(--shadow); }
+.timeline span { display:inline-flex; width:34px; height:34px; border-radius:999px; align-items:center; justify-content:center; background:var(--primary); color:#fff; font-weight:700; font-size:13px; margin-bottom:8px; }
+
+.lead { padding:86px 0; }
+.card-form,.panel-floating { max-width:760px; margin:0 auto; background:var(--surface); border-radius:22px; padding:30px; box-shadow:var(--shadow); }
+.lead--split { display:grid; grid-template-columns:44% 56%; }
+.lead__info { background:var(--dark); color:#fff; padding:44px; display:grid; gap:14px; align-content:center; }
+.lead__info p,.lead__info a { color:#e2e8f0; }
+.lead__form { background:color-mix(in oklab, var(--dark) 82%, #fff 18%); padding:32px; display:grid; align-items:center; }
+form { display:grid; gap:12px; }
+input,textarea { width:100%; border-radius:12px; border:1.5px solid color-mix(in oklab, var(--primary) 18%, #cbd5e1); padding:13px 14px; background:#fff; color:#0f172a; font:inherit; }
+.lead--split input,.lead--split textarea { background:#fff; }
+.fgrid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+
+.footer { background:var(--dark); color:#cbd5e1; padding:22px 0; }
+.footer__row { display:flex; justify-content:space-between; gap:12px; align-items:center; }
+
+.sticky-call,.sticky-tg { position:fixed; right:20px; width:56px; height:56px; border-radius:999px; display:grid; place-items:center; text-decoration:none; color:#fff; font-size:24px; box-shadow:0 12px 24px rgba(2,6,23,.25); z-index:60; }
+.sticky-call { bottom:92px; background:linear-gradient(135deg,#22c55e,#16a34a); }
+.sticky-tg { bottom:24px; background:linear-gradient(135deg,#0ea5e9,#2563eb); }
+
+.mobile-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 80;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 8px;
+  background: color-mix(in oklab, var(--dark) 84%, #000 16%);
+  box-shadow: 0 -8px 28px rgba(2,6,23,.35);
+}
+.mobile-cta a {
+  text-align: center;
+  text-decoration: none;
+  font-weight: 800;
+  border-radius: 12px;
+  padding: 12px 10px;
+  font-size: 14px;
+}
+.mobile-cta__call {
+  color: #fff;
+  background: linear-gradient(135deg,#22c55e,#16a34a);
+}
+.mobile-cta__lead {
+  color: #fff;
+  background: linear-gradient(135deg,var(--primary),var(--accent));
+}
+
+@media (max-width:1024px) {
+  .cards--4,.cards--3,.prices,.timeline,.strip { grid-template-columns:repeat(2,1fr); }
+  .grid2,.hero--diag,.lead--split,.service-list { grid-template-columns:1fr; }
+  .hero__diag-left { clip-path:none; }
+  .masonry { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:700px) {
+  nav { display:none; }
+  .cards--4,.cards--3,.prices,.timeline,.strip,.masonry,.service-list { grid-template-columns:1fr; }
+  .topbar__row,.footer__row { flex-direction:column; align-items:flex-start; }
+  .stats { grid-template-columns:1fr; }
+  .fgrid { grid-template-columns:1fr; }
+  .hero--media-left .content,.glass,.card-form,.panel-floating { padding:22px; }
+  .logo-kicker,.centerkicker { display:none; }
+  .sticky-call,.sticky-tg { display:none; }
+  .mobile-cta { display:grid; }
+  body { padding-bottom: 78px; }
+}</style>
+  <style>
+    .avito-meta {
+      margin: 12px auto 0;
+      width: min(1200px, 92%);
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .avito-meta span {
+      border: 1px solid color-mix(in oklab, var(--primary) 20%, transparent);
+      border-radius: 999px;
+      padding: 6px 11px;
+      background: color-mix(in oklab, var(--surface) 80%, var(--primary) 8%);
+      font-weight: 600;
+    }
+        
+        :root { --radius: 14px; }
+        .cards article,.service-list article,.rows article,.prices article,.timeline article { border-radius: 14px; }
+        .header { backdrop-filter: blur(6px); }
+        .btn { border-radius: 999px; }
+        
+
+        .timeline article,.rows article { border-left: 3px solid color-mix(in oklab, var(--primary) 45%, transparent); }
+        
+  </style>
+</head>
+<body>
+  
+<header class="header header--split">
+  <div class="topbar"><div class="container topbar__row"><span>Работаем 24/7 • Подача от 30 минут</span><a href="tel:+7 (900) 000-00-00">+7 (900) 000-00-00</a></div></div>
+  <div class="container navrow"><div class="logo">Юрий</div><span class="logo-kicker">ГРУЗОПЕРЕВОЗКИ</span><nav><a href="#services">Услуги</a><a href="#works">Портфолио</a><a href="#reviews">Отзывы</a><a href="#contact">Контакты</a></nav><a class="btn btn--sm" href="tel:+7 (900) 000-00-00">Позвонить</a></div>
+</header>
+
+        <div class="avito-meta"><span>TF:porto-wordpress-v5.1.1</span><span>Kaliningrad</span><span>+7 (900) 000-00-00</span></div>
+  
+<section class="hero hero--full" style="--hero:url('photo_1.jpg')">
+  <div class="container hero__content hero__content--center">
+    <p class="eyebrow">PREMIUM CARGO SERVICE</p>
+    <h1>Юрий<br>Грузоперевозки без компромиссов</h1>
+    <p>Гpузoпeревoзки по Калининграду и облaсти, уcлуги грузчикoв. Помoжем пеpeеxaть и дocтaвить любые вещи. По гoрoду и мeжгoрод Квартирные перeeзды, cбopка / paзборкa мeбeли. Зaбеpу Bаш заказ из магaзинa и дoстaвлю до aдpеca. Подъём стройматеpиа.</p>
+    <div class="hero__actions"><a class="btn" href="tel:+7 (900) 000-00-00">+7 (900) 000-00-00</a><a class="btn btn--ghost" href="#contact">Оставить заявку</a></div>
+  </div>
+</section>
+
+  
+<section id="services" class="section">
+  <div class="container">
+    <h2>Почему нас выбирают</h2>
+    <div class="rows">
+      <article><h3>Материальная ответственность</h3><p>Фиксируем состояние имущества и отвечаем по договору.</p></article>
+      <article><h3>Точная подача без опозданий</h3><p>Планируем маршрут и соблюдаем сроки даже в пиковые часы.</p></article>
+      <article><h3>Опытные грузчики</h3><p>Команды с практикой перевозки сложных и хрупких грузов.</p></article>
+    </div>
+  </div>
+</section>
+
+    
+<section id="services-prices" class="section section--muted">
+  <div class="container">
+    <h2>Услуги и цены</h2>
+    <div class="prices prices--six">
+      <article><h3>Газель 1.5т</h3><p class="price">от 2 000 ₽</p><ul><li>Подача от 30 мин</li><li>По городу и области</li></ul></article>
+      <article><h3>Переезд квартиры</h3><p class="price">от 5 000 ₽</p><ul><li>2 грузчика</li><li>Аккуратная упаковка</li></ul></article>
+      <article><h3>Офисный переезд</h3><p class="price">от 8 000 ₽</p><ul><li>Без простоя бизнеса</li><li>Работа по таймингу</li></ul></article>
+      <article><h3>Грузчики</h3><p class="price">от 700 ₽/ч</p><ul><li>Опытная бригада</li><li>Почасовая оплата</li></ul></article>
+      <article><h3>Межгород</h3><p class="price">от 12 000 ₽</p><ul><li>По РФ</li><li>Фиксированный маршрут</li></ul></article>
+      <article><h3>Срочная подача</h3><p class="price">от 2 500 ₽</p><ul><li>День-в-день</li><li>Приоритетный выезд</li></ul></article>
+    </div>
+  </div>
+</section>
+
+  
+<section id="works" class="section section--dark">
+  <div class="container">
+    <h2>Недавние работы</h2>
+    <div class="strip"><img src="photo_2.jpg" alt=""><img src="photo_3.jpg" alt=""><img src="photo_4.jpg" alt=""><img src="photo_5.jpg" alt=""><img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1600&auto=format&fit=crop" alt=""></div>
+  </div>
+</section>
+
+  
+<section id="reviews" class="section section--muted">
+  <div class="container">
+    <h2>Отзывы клиентов</h2>
+    <div class="cards cards--3">
+      <article><p>"Переехали аккуратно, без царапин и задержек. Цена совпала с расчётом."</p><h4>Анна, квартирный переезд</h4></article>
+      <article><p>"Офис перевезли за выходные, в понедельник команда вышла без простоя."</p><h4>Игорь, руководитель IT-компании</h4></article>
+      <article><p>"Очень чёткая коммуникация, всё по таймингу, рекомендую."</p><h4>Марина, доставка техники</h4></article>
+    </div>
+  </div>
+</section>
+
+  
+<section id="process" class="section">
+  <div class="container">
+    <h2>Как проходит перевозка</h2>
+    <div class="timeline">
+      <article><span>01</span><h3>Заявка</h3><p>Быстрый расчёт стоимости и времени.</p></article>
+      <article><span>02</span><h3>Подготовка</h3><p>Упаковка, маркировка, чек-лист.</p></article>
+      <article><span>03</span><h3>Перевозка</h3><p>Бережная погрузка и доставка по маршруту.</p></article>
+      <article><span>04</span><h3>Сдача</h3><p>Разгрузка, расстановка, закрывающие документы.</p></article>
+    </div>
+  </div>
+</section>
+
+  
+<section id="contact" class="lead lead--card">
+  <div class="container">
+    <div class="card-form">
+      <h2>Оставьте заявку</h2>
+      <p>Менеджер Юрий свяжется с вами в ближайшее время</p>
+      <form class="js-form" data-bot-token="8434584674:AAGvxeQulQDyaESBQeu7rF5siC6HHs2McrE" data-chat-id="549333404">
+        <input name="name" placeholder="Ваше имя" required>
+        <input name="phone" placeholder="Телефон" required>
+        <textarea name="message" rows="4" placeholder="Комментарий"></textarea>
+        <button type="submit" class="btn">Отправить</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+  
+<footer class="footer">
+  <div class="container footer__row"><strong>Юрий</strong><span>© 2026. Все права защищены.</span></div>
+</footer>
+<a class="sticky-call" href="tel:+79000000000">📞</a>
+<a class="sticky-tg" href="https://t.me/+79000000000">✈️</a>
+<div class="mobile-cta">
+  <a class="mobile-cta__call" href="tel:+79000000000">Позвонить</a>
+  <a class="mobile-cta__lead" href="#contact">Заявка</a>
+</div>
+
+  <script>
+for (const form of document.querySelectorAll('.js-form')) {
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const payload = new FormData(form);
+    const msg = [
+      '🚚 Новая заявка с сайта',
+      '',
+      'Имя: ' + (payload.get('name') || ''),
+      'Телефон: ' + (payload.get('phone') || ''),
+      'Сообщение: ' + (payload.get('message') || '')
+    ].join('\n');
+
+    try {
+      const res = await fetch('https://api.telegram.org/bot' + form.dataset.botToken + '/sendMessage', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ chat_id: form.dataset.chatId, text: msg })
+      });
+      if (!res.ok) throw new Error('telegram_error');
+      alert('Заявка отправлена. Свяжемся с вами в ближайшее время.');
+      form.reset();
+    } catch (e) {
+      alert('Не удалось отправить заявку. Позвоните нам напрямую.');
+    }
+  });
+}
+</script>
+</body>
+</html>
